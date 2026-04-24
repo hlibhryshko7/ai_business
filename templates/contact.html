@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Контакты" %} | AI Business{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-8">{% trans "Оставить" %} <span class="text-ai-neon">{% trans "заявку" %}</span></h2>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="glass border border-green-500 text-green-400 p-4 rounded-lg mb-6 text-center font-bold">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" class="glass p-8 rounded-2xl flex flex-col gap-6">
+        {% csrf_token %}
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">{% trans "Ваше имя" %}</label>
+            <input type="text" name="name" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ai-neon transition-colors">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                <input type="email" name="email" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ai-neon transition-colors">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-2">{% trans "Телефон" %}</label>
+                <input type="tel" name="phone" class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ai-neon transition-colors">
+            </div>
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2">{% trans "Какая задача стоит перед бизнесом?" %}</label>
+            <textarea name="message" rows="4" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-ai-neon transition-colors resize-none"></textarea>
+        </div>
+        <button type="submit" class="bg-ai-neon text-black font-bold py-4 rounded-lg mt-2 hover:bg-white transition-colors shadow-[0_0_15px_rgba(0,242,254,0.3)]">
+            {% trans "Отправить в нейросеть" %}
+        </button>
+    </form>
+</div>
+{% endblock %}

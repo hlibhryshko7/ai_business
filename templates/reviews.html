@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Отзывы" %} | AI Business{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-12">{% trans "Что говорят" %} <span class="text-ai-neon">{% trans "клиенты" %}</span></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div data-aos="fade-right" class="glass p-6 rounded-xl border-l-4 border-ai-neon">
+            <p class="text-gray-300 italic mb-4">"{% trans "Внедрили AI-бота в техподдержку. Время ответа сократилось с 2 часов до 5 секунд. Конверсия выросла на 15%." %}"</p>
+            <p class="font-bold">{% trans "— Михаил, CEO «FinTech Solutions»" %}</p>
+        </div>
+        <div data-aos="fade-left" class="glass p-6 rounded-xl border-l-4 border-purple-500">
+            <p class="text-gray-300 italic mb-4">"{% trans "Обучение команды работе с Midjourney и ChatGPT сэкономило нам бюджет на целый отдел дизайна. Фантастика!" %}"</p>
+            <p class="font-bold">{% trans "— Анна, Директор по маркетингу" %}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
